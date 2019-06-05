@@ -1,17 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:schedule_it/screens/home_screen.dart';
+import 'package:schedule_it/utils/CommonUtils.dart';
 
 class LoginScreen extends StatelessWidget {
 
   var _appNameSize = 56.0;
 
-  Widget _getImageAsset(String assetPath, double width, double height) {
-    AssetImage assetImage = AssetImage(assetPath);
-    Image image = Image(image: assetImage, width: width, height: height,);
-    return Container(
-      child: image,
-    );
-  }
 
   Widget _loginButtonContent(){
     return Container(
@@ -31,7 +25,7 @@ class LoginScreen extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          _getImageAsset('images/insta_white.png', 32.0, 32.0),
+          CommonUtils.getImageAsset('images/insta_white.png', 32.0, 32.0),
           SizedBox(width: 12.0,),
           Text("Login with Instagram", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),)
         ],
@@ -104,7 +98,7 @@ class LoginScreen extends StatelessWidget {
                   ,
                   Container(
                     margin: EdgeInsets.only(top: 40, bottom: 40),
-                    child: _getImageAsset('images/login_banner.png', 320.0, 240.0),
+                    child: CommonUtils.getImageAsset('images/login_banner.png', 320.0, 240.0),
                   ),
                   Container(
                       child: InkWell(
