@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.deepPurple,
         fontFamily: 'SSP'
       ),
-      home: NewPostScreen(),
+      home: LoginScreen(),
     );
   }
 }

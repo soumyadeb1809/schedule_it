@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:schedule_it/bottom_app_bar/fab_bottom_app_bar.dart';
 
+import 'new_post_screen.dart';
+
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key key, this.title}) : super(key: key);
 
@@ -46,6 +48,12 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     return FloatingActionButton(
         onPressed: () {
           debugPrint("FAB Clicked");
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (BuildContext context) => NewPostScreen(),
+              )
+          );
         },
         tooltip: 'Increment',
         child: Icon(Icons.add),

@@ -26,7 +26,12 @@ class _NewPostScreenState extends State<NewPostScreen> with TickerProviderStateM
     return Container(
       alignment: Alignment.centerLeft,
       margin: EdgeInsets.only(top: 40, left: 20),
-      child: Icon(Icons.keyboard_backspace, size: 32,),
+      child: RaisedButton(
+          child: Icon(
+            Icons.keyboard_backspace,
+            size: 32,
+          )
+      ),
     );
   }
 
@@ -78,7 +83,7 @@ class _NewPostScreenState extends State<NewPostScreen> with TickerProviderStateM
                 )
               ]
           ),
-          child:imageSection
+          child: imageSection
         )
     );
   }
@@ -90,10 +95,9 @@ class _NewPostScreenState extends State<NewPostScreen> with TickerProviderStateM
             _imageSelectionSection(),
             Container(
               padding: EdgeInsets.only(left: 28, right: 28, top: 14),
-              height: 68,
               child: TextField(
                 controller: postCaptionController,
-                keyboardType: TextInputType.text,
+                keyboardType: TextInputType.multiline,
                 decoration: InputDecoration(
                     labelText: 'Post Caption',
                     border: OutlineInputBorder(
@@ -102,6 +106,24 @@ class _NewPostScreenState extends State<NewPostScreen> with TickerProviderStateM
                 ),
               ),
             ),
+            Container(
+              child: Row(
+                children: <Widget>[
+                  Expanded(
+                    child: Container(
+                      child: RaisedButton(
+                        elevation: 0,
+                        color: Color(0xFFFFFFFF),
+                        onPressed: (){
+
+                        },
+                        child: Text("Hello"),
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            )
           ],
         ),
     );
@@ -111,12 +133,16 @@ class _NewPostScreenState extends State<NewPostScreen> with TickerProviderStateM
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
+          height: MediaQuery.of(context).size.height,
           color: Colors.white,
-          child: Column(
-            children: <Widget>[
-              _topAppBar(),
-              _newPostForm(),
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                _topAppBar(),
+                _newPostForm(),
+              ],
+            ),
           ),
         )
     );
