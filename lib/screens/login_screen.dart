@@ -4,8 +4,7 @@ import 'package:schedule_it/utils/CommonUtils.dart';
 
 class LoginScreen extends StatelessWidget {
 
-  var _appNameSize = 56.0;
-
+  final double _appNameSize = 56.0;
 
   Widget _loginButtonContent(){
     return Container(
@@ -102,8 +101,8 @@ class LoginScreen extends StatelessWidget {
                   ),
                   Container(
                       child: InkWell(
-                          onTap: () => {
-                            _onLoginClicked(context)
+                          onTap: () {
+                            _onLoginClicked(context);
                           },
                           child: Material(
                               color: Colors.white,

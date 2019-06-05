@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
-        fontFamily: 'SSP'
+        fontFamily: 'SSP',
       ),
       home: LoginScreen(),
     );
