@@ -48,6 +48,12 @@ flutter:
     - images/login_banner.png
     - images/insta_white.png
     - images/image_placeholder.png
+    - images/post_image.jpg
+    - images/insta_black_small.png
+    - images/trek.jpg
+    - images/banner.jpg
+    - images/morning.jpg
+    - images/mountains.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.

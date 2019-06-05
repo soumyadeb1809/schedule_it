@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:schedule_it/bottom_app_bar/fab_bottom_app_bar.dart';
+import 'package:schedule_it/model/post.dart';
+import 'package:schedule_it/screens/home/post_list.dart';
+import 'package:schedule_it/utils/CommonUtils.dart';
 
-import 'new_post_screen.dart';
+import '../new_post_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key key, this.title}) : super(key: key);
@@ -32,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         notchedShape: CircularNotchedRectangle(),
         onTabSelected: _selectedTab,
         items: [
-          FABBottomAppBarItem(iconData: Icons.menu, text: 'Schedule'),
+          FABBottomAppBarItem(iconData: Icons.timer, text: 'Schedule'),
           FABBottomAppBarItem(iconData: Icons.layers, text: 'Uploaded'),
         ],
       ),
@@ -61,7 +64,24 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     );
   }
 
-  _buildHomeScreenContent() {
+  List<Post>_populatePosts(){
+    List<Post> posts = new List();
+    Post post = new Post(url: "images/post_image.jpg");
+    posts.add(post);
+    post = new Post(url: "images/trek.jpg");
+    posts.add(post);
+    post = new Post(url: "images/banner.jpg");
+    posts.add(post);
+    post = new Post(url: "images/morning.jpg");
+    posts.add(post);
+    post = new Post(url: "images/mountains.jpg");
+    posts.add(post);
+    return posts;
+  }
 
+  Widget _buildHomeScreenContent() {
+    return Container(
+      child: PostList(_populatePosts()),
+    );
   }
 }
