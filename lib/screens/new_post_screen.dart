@@ -66,12 +66,10 @@ class _NewPostScreenState extends State<NewPostScreen> with TickerProviderStateM
   }
 
   Widget _loadImage(){
-    return Container(
-      alignment: Alignment.center,
-      child: this._selectedImage == null
-          ? new Text('Sorry nothing selected!!')
-          : new Image.file(_selectedImage, fit: BoxFit.cover,),
-    );
+    return ClipRRect(
+        borderRadius: new BorderRadius.circular(10),
+        child: Image.file(_selectedImage, fit: BoxFit.cover)
+      );
   }
 
   Widget _imageSelectionSection(){

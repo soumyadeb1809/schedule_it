@@ -44,27 +44,25 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     );
   }
 
-
   /// Method to build center docked FAB:
   Widget _buildFab(BuildContext context) {
-    final icons = [ Icons.sms, Icons.mail, Icons.phone ];
+    final icons = [Icons.sms, Icons.mail, Icons.phone];
     return FloatingActionButton(
-        onPressed: () {
-          debugPrint("FAB Clicked");
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (BuildContext context) => NewPostScreen(),
-              )
-          );
-        },
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-        elevation: 1.0,
+      onPressed: () {
+        debugPrint("FAB Clicked");
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (BuildContext context) => NewPostScreen(),
+            ));
+      },
+      tooltip: 'Increment',
+      child: Icon(Icons.add),
+      elevation: 1.0,
     );
   }
 
-  List<Post>_populatePosts(){
+  List<Post> _populatePosts() {
     List<Post> posts = new List();
     Post post = new Post(url: "images/post_image.jpg");
     posts.add(post);
@@ -81,7 +79,90 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
 
   Widget _buildHomeScreenContent() {
     return Container(
-      child: PostList(_populatePosts()),
+      alignment: Alignment.center,
+      child: Column(
+        children: <Widget>[
+          _topAppBar(),
+          Expanded(
+              child: Container(
+                color: Colors.white,
+                child: PostList(_populatePosts()),
+              )
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget _topAppBar() {
+    return Container(
+      color: Colors.white,
+      width: MediaQuery.of(context).size.width,
+      height: 88,
+      child: Row(
+        children: <Widget>[
+          Expanded(
+            child: Container(
+              padding: EdgeInsets.fromLTRB(24, 48, 0, 0),
+              child: Text(
+                "Scheduled",
+                style: TextStyle(
+                  fontSize: 32,
+                  fontWeight: FontWeight.bold
+                ),
+              ),
+            ),
+          ),
+/*          Expanded(
+            child:*/ Container(
+              alignment: Alignment.center,
+              padding: EdgeInsets.fromLTRB(0, 44, 24, 0),
+              child: Align(
+                alignment: Alignment.bottomRight,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: <Widget>[
+                    Align(
+                      alignment: Alignment.bottomRight,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: <Widget>[
+                          Container(
+                            child: Text(
+                                "Soumya Deb",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                  fontSize: 12
+                                )
+                            ),
+                          ),
+                          Container(
+                            child: Text(
+                                "@_soumyadeb",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.grey,
+                                  fontSize: 12
+                                )
+                            ),
+                          ),
+                        ],
+                      )
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(left: 10, bottom: 5),
+                      child: CommonUtils.getClippedImageAsset("images/mypik1.jpg",
+                                height: 36, width: 36, cornerRadius: 50),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+  //        )
+        ],
+      ),
     );
   }
 }
