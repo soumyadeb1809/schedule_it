@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:schedule_it/bottom_app_bar/fab_bottom_app_bar.dart';
 import 'package:schedule_it/model/post.dart';
+import 'package:schedule_it/profile/profile_screen.dart';
 import 'package:schedule_it/screens/home/post_list.dart';
 import 'package:schedule_it/utils/CommonUtils.dart';
 
-import '../new_post_screen.dart';
+import 'package:schedule_it/screens/new_post/new_post_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key key, this.title}) : super(key: key);
@@ -113,55 +114,66 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               ),
             ),
           ),
-/*          Expanded(
-            child:*/ Container(
-              alignment: Alignment.center,
-              padding: EdgeInsets.fromLTRB(0, 44, 24, 0),
-              child: Align(
+          InkWell(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (BuildContext context) => ProfileScreen(),
+                  ));
+            },
+            child: _userInfo(),
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget _userInfo(){
+    return  Container(
+      alignment: Alignment.center,
+      padding: EdgeInsets.fromLTRB(0, 28, 24, 0),
+      child: Align(
+        alignment: Alignment.bottomRight,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: <Widget>[
+            Align(
                 alignment: Alignment.bottomRight,
-                child: Row(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: <Widget>[
-                    Align(
-                      alignment: Alignment.bottomRight,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: <Widget>[
-                          Container(
-                            child: Text(
-                                "Soumya Deb",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black,
-                                  fontSize: 12
-                                )
-                            ),
-                          ),
-                          Container(
-                            child: Text(
-                                "@_soumyadeb",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.grey,
-                                  fontSize: 12
-                                )
-                            ),
-                          ),
-                        ],
-                      )
+                    Container(
+                      child: Text(
+                          "Soumya Deb",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                              fontSize: 12
+                          )
+                      ),
                     ),
                     Container(
-                      margin: EdgeInsets.only(left: 10, bottom: 5),
-                      child: CommonUtils.getClippedImageAsset("images/mypik1.jpg",
-                                height: 36, width: 36, cornerRadius: 50),
+                      child: Text(
+                          "@_soumyadeb",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.grey,
+                              fontSize: 12
+                          )
+                      ),
                     ),
                   ],
-                ),
-              ),
+                )
             ),
-  //        )
-        ],
+            Container(
+              margin: EdgeInsets.only(left: 10, bottom: 14),
+              child: CommonUtils.getClippedImageAsset("images/mypik1.jpg",
+                  height: 36, width: 36, cornerRadius: 50),
+            ),
+          ],
+        ),
       ),
     );
   }
