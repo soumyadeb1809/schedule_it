@@ -50,28 +50,35 @@ class PostList extends StatelessWidget {
                 padding: EdgeInsets.fromLTRB(16, 16, 10, 16),
                 child: Row(
                   children: <Widget>[
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Row(
-                          children: <Widget>[
-                            Icon(Icons.timer, color: Colors.black, size: 26,),
-                            SizedBox(width: 10,),
-                            Text("16th May, 7:30pm", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 15),)
-                          ],
-                        ),
-                        SizedBox(height: 10,),
-                        Text("Attending a trade show can be very effective\n method of promoting yourself. "
-                            "And one of the most \neffective way of to optimise your trade  show display",
-                          style: TextStyle(color: Colors.grey, fontSize: 12), maxLines: 4,)
-                      ],
-                    ),
-                    Expanded(
-                        child: Container(
-                          alignment: Alignment.bottomRight,
-                          child: Icon(Icons.keyboard_arrow_right, color: Colors.grey,),
-                        )
-                    )
+                    Flexible(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Row(
+                            children: <Widget>[
+                              Icon(Icons.timer, color: Colors.black, size: 26,),
+                              SizedBox(width: 10,),
+                              Text("16th May, 7:30pm", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 15),)
+                            ],
+                          ),
+                          SizedBox(height: 10,),
+                          Expanded(
+                            child: Container(
+                              height: 50,
+                              child: Text("Attending a trade show can be very effective method of Attending a trade show can be very effective method of promoting yourself. And one of the most effective way of to optimise your trade  show display",
+                                style: TextStyle(color: Colors.grey, fontSize: 12),
+                                maxLines: 3,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                          )
+                          ,
+                        ],
+                      ),
+                    ), Container(
+                        alignment: Alignment.bottomRight,
+                        child: Icon(Icons.keyboard_arrow_right, color: Colors.grey,),
+                      )
                   ],
                 ),
               ),

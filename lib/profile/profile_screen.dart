@@ -25,26 +25,9 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  CommonUtils.getClippedImageAsset("images/mypik1.jpg",
-                      height: 130, width: 130, cornerRadius: 130),
-                  Container(
-                    margin: EdgeInsets.only(top: 24),
-                    child: Text("Soumya Deb",
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold
-                      ),
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(top: 8),
-                    child: Text("@_soumyadeb_",
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 16,
-                      ),
-                    ),
+                  Hero(
+                    tag: "user_info",
+                    child: _userInfo(),
                   ),
                   _profileSummary(),
                   _logoutButton()
@@ -225,6 +208,37 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
               color: Colors.grey,
             ),
           )
+      ),
+    );
+  }
+
+  Widget _userInfo() {
+    return Align(
+      alignment: Alignment.center,
+      child: Column(
+        children: <Widget>[
+          CommonUtils.getClippedImageAsset("images/mypik1.jpg",
+              height: 130, width: 130, cornerRadius: 130),
+          Container(
+            margin: EdgeInsets.only(top: 24),
+            child: Text("Soumya Deb",
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold
+              ),
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.only(top: 8),
+            child: Text("@_soumyadeb_",
+              style: TextStyle(
+                color: Colors.grey,
+                fontSize: 16,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

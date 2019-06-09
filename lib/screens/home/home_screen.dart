@@ -104,14 +104,22 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         children: <Widget>[
           Expanded(
             child: Container(
-              padding: EdgeInsets.fromLTRB(24, 48, 0, 0),
-              child: Text(
-                "Scheduled",
-                style: TextStyle(
-                  fontSize: 32,
-                  fontWeight: FontWeight.bold
-                ),
-              ),
+              padding: EdgeInsets.fromLTRB(24, 0, 0, 0),
+              child: Stack(
+                children: <Widget>[
+                  Positioned(
+                    left: 0,
+                    top: 38,
+                    child: Text(
+                      "Scheduled",
+                      style: TextStyle(
+                          fontSize: 32,
+                          fontWeight: FontWeight.bold
+                      ),
+                    ),
+                  )
+                ],
+              )
             ),
           ),
           InkWell(
@@ -122,7 +130,10 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                     builder: (BuildContext context) => ProfileScreen(),
                   ));
             },
-            child: _userInfo(),
+            child: Hero(
+              tag: "user_info",
+              child: _userInfo(),
+            ),
           )
         ],
       ),
@@ -132,45 +143,51 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   Widget _userInfo(){
     return  Container(
       alignment: Alignment.center,
-      padding: EdgeInsets.fromLTRB(0, 28, 24, 0),
+      width: 200,
+      padding: EdgeInsets.fromLTRB(28, 28, 24, 0),
       child: Align(
-        alignment: Alignment.bottomRight,
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.end,
+        alignment: Alignment.center,
+        child: Stack(
+          fit: StackFit.expand,
           children: <Widget>[
-            Align(
-                alignment: Alignment.bottomRight,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: <Widget>[
-                    Container(
-                      child: Text(
-                          "Soumya Deb",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black,
-                              fontSize: 12
-                          )
-                      ),
+            Positioned(
+              right: 48,
+              top: 14,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: <Widget>[
+                  Container(
+                    child: Text(
+                        "Soumya Deb",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                            fontSize: 12
+                        )
                     ),
-                    Container(
-                      child: Text(
-                          "@_soumyadeb",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.grey,
-                              fontSize: 12
-                          )
-                      ),
+                  ),
+                  Container(
+                    child: Text(
+                        "@_soumyadeb",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.grey,
+                            fontSize: 12
+                        )
                     ),
-                  ],
-                )
+                  ),
+                ],
+              )
             ),
-            Container(
-              margin: EdgeInsets.only(left: 10, bottom: 14),
-              child: CommonUtils.getClippedImageAsset("images/mypik1.jpg",
-                  height: 36, width: 36, cornerRadius: 50),
+            Positioned(
+              right: 0,
+              top: 10,
+              child: Container(
+                margin: EdgeInsets.only(left: 10, bottom: 14),
+                child: CommonUtils.getClippedImageAsset("images/mypik1.jpg",
+                    height: 36, width: 36, cornerRadius: 50),
+              ),
             ),
           ],
         ),
