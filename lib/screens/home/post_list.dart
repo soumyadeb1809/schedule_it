@@ -33,53 +33,56 @@ class PostList extends StatelessWidget {
             ),
             Positioned(
               top: 308,
-              child: Container(
-                width: 320,
-                height: 120,
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                    boxShadow: [
-                      BoxShadow(
-                          color: Color(0x20000000),
-                          offset: new Offset(0.0, 3.0),
-                          blurRadius: 10.0
-                      )
-                    ]
-                ),
-                padding: EdgeInsets.fromLTRB(16, 16, 10, 16),
-                child: Row(
-                  children: <Widget>[
-                    Flexible(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Row(
-                            children: <Widget>[
-                              Icon(Icons.timer, color: Colors.black, size: 26,),
-                              SizedBox(width: 10,),
-                              Text("16th May, 7:30pm", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 15),)
-                            ],
-                          ),
-                          SizedBox(height: 10,),
-                          Expanded(
-                            child: Container(
-                              height: 50,
-                              child: Text("Attending a trade show can be very effective method of Attending a trade show can be very effective method of promoting yourself. And one of the most effective way of to optimise your trade  show display",
-                                style: TextStyle(color: Colors.grey, fontSize: 12),
-                                maxLines: 3,
-                                overflow: TextOverflow.ellipsis,
-                              ),
+              child: InkWell(
+                onTap: (){},
+                child: Container(
+                  width: 320,
+                  height: 120,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                      boxShadow: [
+                        BoxShadow(
+                            color: Color(0x20000000),
+                            offset: new Offset(0.0, 3.0),
+                            blurRadius: 10.0
+                        )
+                      ]
+                  ),
+                  padding: EdgeInsets.fromLTRB(16, 16, 10, 16),
+                  child: Row(
+                    children: <Widget>[
+                      Flexible(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Row(
+                              children: <Widget>[
+                                Icon(Icons.timer, color: Colors.black, size: 26,),
+                                SizedBox(width: 10,),
+                                Text("16th May, 7:30pm", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 15),)
+                              ],
                             ),
-                          )
-                          ,
-                        ],
-                      ),
-                    ), Container(
-                        alignment: Alignment.bottomRight,
-                        child: Icon(Icons.keyboard_arrow_right, color: Colors.grey,),
-                      )
-                  ],
+                            SizedBox(height: 10,),
+                            Expanded(
+                              child: Container(
+                                height: 50,
+                                child: Text("Attending a trade show can be very effective method of Attending a trade show can be very effective method of promoting yourself. And one of the most effective way of to optimise your trade  show display",
+                                  style: TextStyle(color: Colors.grey, fontSize: 12),
+                                  maxLines: 3,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ),
+                            )
+                            ,
+                          ],
+                        ),
+                      ), Container(
+                          alignment: Alignment.bottomRight,
+                          child: Icon(Icons.keyboard_arrow_right, color: Colors.grey,),
+                        )
+                    ],
+                  ),
                 ),
               ),
             )
